@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Cadastro</h1>
+
+    <form method="post">
+        <label for="nome">Nome</label>
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Ex: João Silva"
+            required
+        >
+
+        <label for="idade">Idade</label>
+        <input
+            type="number"
+            id="idade"
+            name="idade"
+            placeholder="Ex: 25"
+            required
+        >
+
+        <label for="estado">Estado</label>
+        <input
+            type="text"
+            id="estado"
+            name="estado"
+            placeholder="SP ou São Paulo"
+            required
+        >
+
+        <button type="submit">Salvar cadastro</button>
+    </form>
+
+    {% if mensagem %}
+        <div class="mensagem {{ 'sucesso' if sucesso else 'erro' }}">
+            {{ mensagem }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
